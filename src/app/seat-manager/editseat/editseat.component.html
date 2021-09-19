@@ -1,0 +1,65 @@
+<div class="bg-info text-white" style="height: 100vh">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mt-3">
+        <h1 class="text-primary">Đặt vé xe buýt CyberSoft</h1>
+      </div>
+      <div class="col-8">
+        <app-seatlist> </app-seatlist>
+      </div>
+      <div class="col-4 mt-5">
+        <h4 class="text-center">Thêm ghế</h4>
+        <form>
+          <div class="form-group">
+            <label>Id :</label>
+            <input type="number" class="form-control" placeholder="Id" #Id />
+          </div>
+
+          <div class="form-group mt-4">
+            <label>Name :</label>
+            <input type="text" class="form-control" placeholder="Ghế 1" #Name />
+          </div>
+
+          <div class="form-group mt-4">
+            <label>Price :</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Price"
+              #Price
+            />
+          </div>
+
+          <div class="form-group mt-4">
+            <label>Status :</label>
+            <input
+              type="radio"
+              name="checkstatus"
+              #Status
+              style="margin-left: 10px"
+            />
+            <label for="true">True</label>
+            <input
+              type="radio"
+              name="checkstatus"
+              #Status
+              style="margin-left: 20px"
+            />
+            <label for="false">False</label>
+          </div>
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-add"
+              (click)="
+                handleAddSeat(Id.value, Name.value, Price.value, Status.checked)
+              "
+            >
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

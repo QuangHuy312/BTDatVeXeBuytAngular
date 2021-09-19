@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-6 mt-5">
+    <app-seat
+      *ngFor="let seat of seatList"
+      [ItemSeat]="seat"
+      (checkStatus)="checkStatusParent($event, seat)"
+    ></app-seat>
+
+    <hr />
+    <div class="text-center row">
+      <div class="col-3 d-flex">
+        <span>Đã đặt</span>
+        <div class="bg-success buttonColor"></div>
+      </div>
+      <div class="col-4 d-flex">
+        <span>Chưa đặt</span>
+        <div class="bg-light buttonColor"></div>
+      </div>
+      <div class="col-5 d-flex">
+        <span>Không thể đặt</span>
+        <div class="bg-danger buttonColor"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6 mt-5">
+    <p>Số ghế đã đặt :{{ listBooked }}</p>
+    <p>Số ghế còn lại :{{ listRemaining }}</p>
+    <hr />
+    <h4 class="text-center">Ghế đang đặt</h4>
+    <p *ngFor="let seat of listSeatBooking">
+      <span style="padding-right: 10px"> {{ seat.Name }}</span>
+      <span>Price: {{ seat.Price }}</span>
+    </p>
+    <p class="text-center" *ngIf="listSeatBooking.length > 0">
+      TotalPrice :{{ totalPrice }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<ng-container *ngIf="!ItemSeat.Status; else seatBooked">
+  <button
+    class="btn btn-light m-2"
+    style="width: 60px; height: 50px"
+    (click)="handleClickSeat()"
+    [ngClass]="{ 'bg-success text-white': status }"
+  >
+    {{ ItemSeat.Id }}
+  </button>
+</ng-container>
+
+<ng-template #seatBooked>
+  <button
+    class="btn btn-danger m-2"
+    style="width: 60px; height: 50px"
+    (click)="handleClickSeat()"
+    disabled
+    [ngClass]="{ 'bg-success text-white': status }"
+  >
+    {{ ItemSeat.Id }}
+  </button>
+</ng-template>
